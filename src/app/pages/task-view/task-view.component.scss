@@ -1,0 +1,99 @@
+/*
+    Author:Wei Cao
+    Date: 4/11/2019
+    Desc: scss for task-view compoent
+*/
+
+@import '../../../main-style.scss';
+.task-manager-container{
+    display: flex;
+    width:100%;
+    height:100%;
+    max-width: 900px;
+    max-height: 580px;
+   // background: white;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width:230px;
+    //background:black;
+    padding:42px; 
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.task-list-container{
+    display:flex;
+    flex-direction: column;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding:42px;
+    width:670px;
+    position: relative;
+}
+
+
+//can nested these due to scss
+.list-menu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    flex-grow:1;//takes up all remaining height
+    .list-menu-item{
+        display: flex;
+        align-items: center;
+        padding: 10px 1px;//10 on bottom and top, 15 on right and left
+        border-radius: 5px;
+        width: 100%;
+        color:#5f5f5f;
+        margin-bottom: 5px;
+
+        &:hover {
+            background: $light;
+        }
+
+        &.is-active{
+            background-color: #cff8ef;
+            color:$dark-green;
+        }
+    }
+}
+
+.task{
+    background: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top:10px;
+    cursor: pointer;//make it clickable
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:not(.complete){
+        &:active{
+            transform: scale(0.95);
+        }
+    
+        &:hover{
+            box-shadow: 0 0 0 5px #eeeeee;
+        }
+    }
+
+    &.completed{
+        text-decoration: line-through;
+        opacity:0.3px;
+    }
+}
+
+.cirile-add-button {
+    //The element is positioned relative to its first positioned (not static) ancestor element
+    position: absolute;
+    height:50px;
+    width:50px;
+    bottom:35px;
+    right: 35px;
+    //background: $primary;
+    border: none;
+    //want to change the button to circle
+    border-radius: 50%;
+}
